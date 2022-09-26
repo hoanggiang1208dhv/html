@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Band</title>
+    <style>
+        html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.clear {
+    clear: both;
+}
+.heading {
+    font-size: 30px;
+    letter-spacing: 4px;
+    margin: 10px 0;
+    text-align: center;
+    font-weight: 100;
+}
+.desc {
+    font-size: 15px;
+    margin: 15px 0;
+    text-align: center;
+    font-style: italic;
+    opacity: 0.5;
+}
+.row {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.col {
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.row::after {
+    content:"";
+    display: block;
+    clear: both;
+}
+.col-1 {
+    width: 100%;
+}
+.col-2 {
+    width: 50%;
+}
+.col-3 {
+    width: 33.33333%;
+}
+.pd {
+    padding-top: 64px !important;
+    padding-bottom: 112px !important;
+}
+.text-white {
+    color:#fff !important;
+}
+
+.center800px {
+    
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* private */
+
+#header {
+    height: 46px;
+    background-color: black;
+    left: 0;
+    top: 0;
+    right: 0;
+    position: fixed;
+    z-index: 1;
+}
+#nav {
+    font-size: 15px;
+}
+#nav > a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 15px 24px;
+    line-height: 46px;
+}
+#nav > a:hover, .dropdown:hover > a, .subnav li:hover a {   
+    color: #000;
+    background-color: #ccc;
+}
+.dropdown {
+    display: inline;
+    position: relative;
+}
+.dropdown a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 15px 24px;
+    line-height: 24px;
+}
+
+#nav .subnav {
+    display: none;
+    position: absolute;
+    top: 32px;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.dropdown:hover .subnav {
+    display: block !important;
+}
+
+#nav .subnav li {
+    list-style-type: none;
+}
+#nav .subnav li a {
+    color: #000;
+    padding: 8px 46px 8px 16px;
+    text-transform: none;
+    display: block;
+    font-size: 18px;
+    
+}
+
+.search-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 16px;
+    color:#fff;
+    padding: 15px 23px;
+    cursor: pointer;
+}
+.search-btn:hover {
+    background-color: #f44336;
+}
+
+
+/* Content */
+#content {
+    position: relative;
+}
+
+/* slide */
+.slide  {
+    padding-top: 46px;
+    text-align: center;
+    position: relative;
+}
+.img-img {
+    width: 100%;
+}
+.text-slide {
+    position: absolute;
+    bottom: 48px;
+    right: 0;
+    left: 0;
+    color: #fff;
+}
+.heading-img {
+    padding: 8px;
+    font-size: 24px;
+}
+.desc-img {
+    padding: 8px;
+    font-size: 16px;
+}
+
+/* intruduction */
+.introduction {
+    padding-top: 64px;
+}
+.introduction p {
+    font-size: 15px;
+    line-height: 1.4;
+    text-align: justify;
+}
+.member {
+    padding-top: 64px;  
+}
+.member-item {
+    text-align: center; 
+    float: left;
+    width: 33.33333%;
+
+}
+.member-name {
+    text-align: center !important; 
+    padding: 15px;
+}
+.member-img {
+    width: 154px;
+    border-radius: 5px;
+}
+
+
+/* tour dates */
+.content-tour {
+    background-color:  #000;
+}
+.tour {
+    font-size: 15px;
+}
+.tour .tickets {
+    background-color: #fff;
+}
+.tour .date {
+    padding: 8px 16px;
+    color: #757575;
+    border: 1px solid #ddd ;
+}
+.tour .status {
+    padding: 3px 8px;
+    margin-left: 16px;
+    color: #fff;
+    background:  #f44336;
+}
+.tour .quantity {
+    float: right;
+    background: #000;
+    color: #fff;
+    line-height: 1.5;
+    padding: 0 8px;
+    margin-right: 16px;
+    border-radius: 50%;
+    margin-top: -2px;
+}
+.content-tour .tickets {
+    margin-top: 30px;
+}
+
+/* tour places */
+.places {
+    padding-top: 32px;
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.place-inf {
+    float: left;
+    width: 33.33333%;
+    padding: 0 8px;
+    
+}
+.place-img {
+    width: 100%;
+}
+.place-img:hover {
+    opacity: 0.6;
+}
+.place-body {
+    background-color: #fff;
+    font-size: 15px;
+    padding: 16px;
+}
+.place-name {
+    
+}
+.place-date {
+    opacity: 0.6;
+    margin: 15px 0;
+
+}
+.place-desc {
+    line-height: 1.4;
+    margin: 15px 0;
+
+}
+.btn {
+    color: #fff;
+    padding: 8px 16px;
+    background: #000;
+    font-size: 15px;
+    border : none;
+}
+.btn:hover {
+    background: #ccc;
+    color: #000;
+    cursor: pointer;
+}
+
+
+/* contact */
+.container {
+    padding-top: 32px;
+}
+.contact .container {
+    font-size: 18px;
+}
+.container {
+}
+.contact-info {
+    line-height: 1.4;
+}
+.ti-contact {
+    font-size: 18px;
+    margin-right: 20px;
+
+}
+.contact-form {
+    font-size: 15px;
+}
+.form-control {
+    padding: 8px;
+    border: 1px solid #ccc;
+    width: 100%; 
+}
+.duoi {
+    margin-top: 10px;
+}
+.send-btn {
+    float: right;
+    margin-top: 16px;
+}
+
+/* map */
+.map img {
+    width: 100%;
+    opacity: 0.8;
+}
+
+/* footer */
+#footer {
+    text-align: center;
+    padding: 64px 0;
+    opacity: 0.6;
+    font-size: 24px;
+}
+#footer p {
+    font-size: 15px;
+    margin: 16px 0;
+}
+#footer a {
+    color: #000;
+}
+#footer i:hover {
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+
+/* modal */
+.modal.open {
+    display: flex;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    /* z-index: 2; */
+    animation: showmodal ease .5s;
+}
+.modal-container {
+    width: 900px;
+    background: #fff;
+    min-height: 400px;
+    position: relative;
+}
+.modal-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 12px;
+    color: #fff;
+}
+.modal-close:hover {
+    color:#000;
+    background: #ccc;   
+    cursor: pointer;
+}
+.modal-header {
+    height: 130px;
+    background-color: #009688;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 30px;
+    letter-spacing: 4px;
+    
+}
+.pdr16 {
+    padding-right: 16px;
+}
+
+.modal-body {
+    padding: 16px;
+}
+.modal-label {
+    display: block;
+    font-size: 15px;
+}
+.modal-input {
+    width: 100%;
+    border: 1px solid #CCC;
+    margin-bottom: 24px;
+    margin-top: 8px;
+    padding: 10px;
+}
+
+.pay-btn {
+    background-color: #009688;
+    margin: 16px 0;
+    padding: 16px;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+}
+.pay-btn:hover {
+    background-color: #ccc;
+    color:#000;
+    cursor: pointer;
+}
+
+.modal-body p {
+    font-size: 15px;
+    float: right;
+    margin-top: 15px;
+    margin-bottom: 32px;
+}
+.modal-body p a {
+    color: #2196F3;
+}
+    </style>
+</head>
+<body>
+    <!-- header -->
+  <div id="header">
+    <div id="nav">
+      <a href="#">Home</a>
+      <a href="#band">Band</a>
+      <a href="#tour">Tour</a>
+      <a href="#contact">Contact</a> 
+      <div class="dropdown">
+        <a href="">
+          More <i class="ti-angle-down"></i>
+        </a>
+        <ul class="subnav">
+          <li><a href="">Mechardise</a></li>
+          <li><a href="">Extras</a></li>
+          <li><a href="">Media</a></li>
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="search-btn">
+      <i class="ti-search"></i>
+
+    </div>
+
+  </div>
+
+  <!-- content -->
+  <div id="content">
+    <!-- slide -->
+    <div class="slide">
+      <div class="text-slide">
+        <p class="heading-img">
+          New York
+        </p>
+        <p class="desc-img">
+          The atmosphere in New York is lorem ipsum.
+        </p>
+      </div>
+      <img class="img-img" src="img/newyork.jpg" alt="newyork">
+    </div>
+
+    <!-- introduction -->
+    <div id="band" class="introduction pd center800px">
+      <h2 class="heading">THE BAND</h2>
+      <div class="desc">We love music</div>
+      <p>
+        We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+      <div class="member">
+        <div class="member-item">
+          <p class="member-name">Name</p>
+          <img src="img/member.jpg" alt="Member" class="member-img">
+        </div>
+        <div class="member-item">
+          <p class="member-name">Name</p>
+          <img src="img/member.jpg" alt="Member" class="member-img">
+        </div>
+        <div class="member-item">
+          <p class="member-name">Name</p>
+          <img src="img/member.jpg" alt="Member" class="member-img">
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+
+    <!-- tour dates -->
+    <div id="tour" class="content-tour">
+      <div class="tour pd center800px">
+        <h2 class="heading text-white">TOUR DATES</h2>
+        <div class="desc text-white">Remember to books your tickets!</div>
+
+        <!-- tickets infomation -->
+        <div class="tickets">
+          <p class="date">September
+            <span class="status">Sold out</span>
+          </p>
+
+          <p class="date">October
+            <span class="status">Sold out</span>
+          </p>
+
+          <p class="date">November
+            <span class="quantity">3</span>
+          </p>
+        </div>
+        
+        <!-- tour places -->
+        <div class="places">
+          <div class="place-inf">
+            <img src="img/places/ny.jpg" alt="New Y" class="place-img">
+            <div class="place-body">
+              <h4 class="place-name">New York</h4>
+              <p class="place-date">Fri 27 Nov 2016</p>
+              <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+              <button class="buy-tickets btn js-buy-ticket">Buy Tickets</button>
+            </div>
+          </div>
+          <div class="place-inf">
+            <img src="img/places/paris.jpg" alt="Paris" class="place-img">
+            <div class="place-body">
+              <h4 class="place-name">Paris</h4>
+              <p class="place-date">Sat 28 Nov 2016</p>
+              <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+              <button class="buy-tickets btn js-buy-ticket">Buy Tickets</button>
+            </div>
+          </div>
+          <div class="place-inf">
+            <img src="img/places/sanfran.jpg" alt="San Francico" class="place-img">
+            <div class="place-body">
+              <h4 class="place-name">San Francisco</h4>
+              <p class="place-date">Sun 29 Nov 2016</p>
+              <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+              <button class="buy-tickets btn js-buy-ticket ">Buy Tickets</button>
+            </div>
+          </div>
+
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+
+
+    <!-- contact -->
+    <div id="contact" class="contact pd center800px">
+      <h1 class="heading">CONTACT</h1>
+      <div class="desc">Fan? Drop a note!</div>
+
+      <div class="container row">
+        <div class="col col-2 contact-info">
+          <p><i class="ti-contact ti-location-pin"></i>Chicago, US</p>
+          <p><i class="ti-contact ti-mobile"></i>Phone: +00 151515</p>
+          <p><i class="ti-contact ti-email"></i>Email: mail@mail.com</p>
+        </div>
+        <div class="contact-form col col-2">
+          <form action="">
+            <div class="row">
+              <div class="col col-2">
+                <input type="text" placeholder="Name" required class="form-control">
+              </div>
+              <div class="col col-2">
+                <input type="email" placeholder="Email" required class="form-control">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-1 duoi">
+                <input type="text" placeholder="Message" required class="form-control">
+              </div>
+            </div>
+            <input type="submit" value="SEND" class="btn send-btn">
+          </form>
+        </div>
+        <div class="clear"></div>
+      </div> 
+    </div>
+
+    <!-- map -->
+    <div class="map">
+      <img src="img/map/map.jpg" alt="map">
+    </div>
+    <div class="clear"></div>
+    
+  </div>
+
+  <!-- footer -->
+  <div id="footer">
+    <i class="ti-facebook"></i>
+    <i class="ti-instagram"></i>
+    <i class="ti-youtube"></i>
+    <i class="ti-pinterest"></i>
+    <i class="ti-twitter-alt"></i>
+    <i class="ti-linkedin"></i>
+    <p>Powered by <a href="">w3.css</a></p>
+  </div>
+
+  <!-- modal -->
+  <div class="modal js-modal">
+    <div class="modal-container js-modal-container">
+      <div class="modal-close js-close">
+        <i class="ti-close  "></i>
+      </div>
+      <header class="modal-header">
+        <i class="ti-bag pdr16"></i>
+        Tickets
+      </header>
+
+      <div class="modal-body">
+        <label for="" class="modal-label">
+          <i class="ti-shopping-cart"></i>
+          Tickets, $15 per person
+        </label>
+        <input type="text" placeholder="How many?" class="modal-input">
+        <label for="" class="modal-label">
+          <i class="ti-user"></i>
+          Send To
+        </label>
+        <input type="email" placeholder="Enter email?" class="modal-input">
+        <div class="pay-btn">
+          PAY
+          <i class="ti-check"></i>
+        </div>
+        <p>Need <a href="">help?</a></p>
+      </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const buyBtns = document.querySelectorAll('.js-buy-ticket')
+    const modal = document.querySelector('.js-modal')
+    const modalClose = document.querySelector('.js-close')
+    const modalContainer = document.querySelector('.js-modal-container')
+    function openModal() {
+      modal.classList.add('open')
+    }
+    function hideModal() {
+      modal.classList.remove('open')
+    }
+
+    for(const buyBtn of buyBtns) {
+      buyBtn.addEventListener('click', openModal )
+    }
+
+    modalClose.addEventListener('click', hideModal)
+
+    modal.addEventListener('click', hideModal)
+
+    modalContainer.addEventListener('click', function (event) {
+      event.stopPropagation()
+    })
+
+  </script> 
+</body>
+</html>
